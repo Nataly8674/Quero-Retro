@@ -1,0 +1,26 @@
+{
+  "name": "quero-retro-app-ssr",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server",
+    "dev:json": "json-server ./src/migrations/retrospective-db.json",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --ssrManifest --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
+    "preview": "cross-env NODE_ENV=production node server"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.7.1",
+    "compression": "^1.7.4",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "json-server": "^1.0.0-alpha.23",
+    "sirv": "^2.0.4"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "vite": "^5.0.10"
+  }
+}
